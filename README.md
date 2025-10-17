@@ -1,4 +1,3 @@
-
 # MedSafe — Drug Interaction Finder
 
 **Author:** Anshul
