@@ -1,0 +1,756 @@
+:root {
+  --background_light: #F2F9FE;
+  --background_dark: #223344;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', serif;
+}
+
+body {
+  height: 100vh;
+  transition: 1s;
+}
+
+/* Light Theme Text Colors */
+.light {
+  background-color: #F2F9FE;
+  color: #223344; /* Default text color for light theme */
+}
+
+.light .title-menu,
+.light .list-items-menu,
+.light .info,
+.light .main-text,
+.light .second-text,
+.light .about-title,
+.light .about-text,
+.light .contact-title,
+.light .contact-text,
+.light .contact-label,
+.light .contact-value,
+.light .highlight-item span,
+.light .last-text .item p,
+.light .author-info {
+  color: #223344; /* Dark text for light theme */
+}
+
+/* Dark Theme Text Colors */
+.dark {
+  background-color: #111729;
+  color: #ffffff; /* Default text color for dark theme */
+}
+
+.dark .title-menu,
+.dark .list-items-menu,
+.dark .info,
+.dark .main-text,
+.dark .second-text,
+.dark .about-title,
+.dark .about-text,
+.dark .contact-title,
+.dark .contact-text,
+.dark .contact-label,
+.dark .contact-value,
+.dark .highlight-item span,
+.dark .last-text .item p,
+.dark .author-info {
+  color: #ffffff; /* White text for dark theme */
+}
+
+.author-info {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.author-info a {
+  text-decoration: none;
+}
+
+/* Toggle mode light-dark */
+.toggle {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 45px;
+  height: 22px;
+  border-radius: 50px;
+  transition: 1s;
+}
+
+.toggle img {
+  width: 35%;
+  line-height: 45px;
+  text-align: center;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.toggle .ball {
+    position: absolute;
+    width: 18px;
+    height: 17px;
+    margin-top: 0.18rem;
+    border-radius: 50%;
+    transition: 0.5s ease-out;
+  }
+  
+  nav input {
+    display: none;
+  }
+  
+  /*
+    Light mode
+  */
+  .light {
+    background-color: #F2F9FE;
+  }
+  
+  .light .title-menu,
+  .light .list-items-menu,
+  .light .info,
+  .light .main-text {
+    color: #223344;
+  }
+  
+  .light .toggle {
+    background: #223344;
+    box-shadow: 3px 3px 4px #e6e6e6, -3px -3px 4px #ffffff;
+  }
+  
+  .light .toggle .bxs-sun {
+    margin-right: 0.18rem;
+  }
+  
+  .light .toggle .bx-moon {
+    margin-left: 0.23rem;
+  }
+  
+  .light .toggle .ball {
+    background: #F2F9FE;
+    transform: translateX(25px);
+  }
+  
+  .light .contactinfo,
+  .light .about-title,
+  .light .about-text {
+    color: #000000; /* Black for light theme */
+  }
+  
+
+
+  
+  /*
+    Dark mode
+  */
+  .dark {
+    background: #111729;
+  }
+  
+  .dark .toggle {
+    background: #223344;
+    box-shadow: 3px 3px 3px #0e131b, -3px -3px 3px #1c2739;
+  }
+  
+  .dark .toggle .bx-sun {
+    color: #fafafa;
+    margin-right: 0.18rem;
+  }
+  
+  .dark .toggle .bxs-moon {
+    color: #151d2a;
+    margin-left: 0.23rem;
+  }
+  
+  .dark .toggle .ball {
+    background: #fafafa;
+    transform: translateX(2px);
+  }
+  
+  .dark .contactinfo,
+  .dark .about-title,
+  .dark .about-text {
+    color: #ffffff; /* White for dark theme */
+  }
+  
+  /* Menu hidden */
+  .menu-toggle {
+    position: absolute;
+    cursor: pointer;
+    margin: 0 1rem;
+    right: -1rem;
+    top: 0;
+    width: 68%;
+    background: transparent;
+    display: flex;
+    justify-content: end;
+    padding-right: 2rem;
+    transition: background 0.5s ease-in-out;
+    transition-behavior: allow-discrete;
+  }
+  
+  .menu-toggle .menu {
+    display: block;
+  }
+  
+  .menu-toggle .close {
+    display: none;
+  }
+  
+  .menu-toggle .close,
+  .menu-toggle .menu {
+    margin-top: 1rem;
+  }
+  
+  ul {
+    width: 68%;
+    height: 126vh;
+    position: absolute;
+    top: -2rem;
+    right: -0%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 3rem;
+    margin-top: 5rem;
+    background: #ffffff;
+    opacity: 0%;
+    transition: all 0.5s ease-in-out;
+    transition-behavior: allow-discrete;
+  }
+  
+  ul li {
+    list-style-type: none;
+    list-style: none;
+  }
+  
+  .menu-logo {
+    margin-right: auto;
+    margin-left: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #223344;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .menu-logo span {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    font-size: 1.875rem;
+    font-weight: 600;
+    color: #223344;
+  }
+  
+  #menu_checkbox:checked ~ ul {
+    display: flex;
+    opacity: 100%;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  #menu_checkbox:checked ~ .menu-toggle .close {
+    display: block;
+  }
+  
+  #menu_checkbox:checked ~ .menu-toggle .menu {
+    display: none;
+    right: -1rem;
+  }
+  
+  #menu_checkbox:checked ~ .light .menu-toggle {
+    transform: translateX(0%);
+    background: #ffffff;
+  }
+  
+  #menu_checkbox:checked ~ .dark .menu-toggle {
+    transform: translateX(0%);
+    background: #111729;
+  }
+  
+  li a.selected,
+  li a:hover {
+    color: #2A4DD0;
+    border-bottom: 3px solid #2A4DD0;
+    padding-bottom: 2px;
+  }
+  
+  .dark ul {
+    background: #111729;
+  }
+  
+  /* Body section */
+  .info {
+    width: auto;
+    height: auto;
+    padding: 4rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+  }
+  
+  .data {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: start;
+  }
+  
+  .first-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .main-text {
+    font-size: 3.9rem;
+    font-weight: 700;
+    color: #223344;
+    width: 70%;
+    margin-bottom: 1rem;
+  }
+  
+  .second-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  
+  .buttons-list {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .button-get button {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    background: #2A4DD0;
+    border: 0px;
+    border-radius: 15px;
+    color: #F2F9FE;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+  }
+  
+  .button-get button:hover {
+    background: #1e3a8a;
+  }
+  
+  .button-checker button {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    background: #28a745; /* Green background */
+    border: none;
+    border-radius: 15px;
+    color: #F2F9FE;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-checker button:hover {
+    background: #218838; /* Darker green on hover */
+  }
+  
+  .button-login button {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    background: #28a745; /* Green background */
+    border: none;
+    border-radius: 15px;
+    color: #F2F9FE;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-login button:hover {
+    background: #218838; /* Darker green on hover */
+  }
+  
+  .last-text {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .last-text .item {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .button-link a {
+    text-decoration: none;
+    border-bottom: 3px solid #2A4DD0;
+    padding-bottom: 2px;
+  }
+  
+  .image {
+    width: 50%;
+  }
+  
+  .image img {
+    width: 100%;
+    padding-top: 1rem;
+  }
+  
+  .dark .menu-logo span,
+  .dark .list-items-menu,
+  .dark .data,
+  .dark .main-text,
+  .dark .item-menu {
+    color: #ffffff;
+  }
+  
+  .dark .button-link a,
+  .dark .selected,
+  .dark li a:hover {
+    color: #ffffff;
+    border-bottom: 3px solid #ffffff;
+  }
+  
+  /* About Section */
+  .about-section {
+    background-color: #ffffff; /* White background */
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 1200px;
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2A4DD0; /* Primary blue color */
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-text {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #4a5568; /* Dark gray for better readability */
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #f7fafc; /* Light background for highlights */
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .highlight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .highlight-item img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .highlight-item span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2d3748; /* Dark gray for text */
+  }
+  
+  /* Contact Section */
+  .contact-section {
+    background-color: #ffffff; /* White background */
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 1200px;
+    text-align: center;
+  }
+  
+  .contact-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2A4DD0; /* Primary blue color */
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-text {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #4a5568; /* Dark gray for better readability */
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f7fafc; /* Light background for contact items */
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-icon {
+    font-size: 1.5rem;
+    color: #2A4DD0; /* Primary blue color */
+  }
+  
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+  }
+  
+  .contact-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #718096; /* Light gray for label */
+  }
+  
+  .contact-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2d3748; /* Dark gray for value */
+  }
+  
+  /* Dark Theme Adjustments */
+  .dark .contact-section {
+    background-color: #1a202c; /* Dark background */
+  }
+  
+  .dark .contact-title {
+    color: #ffffff; /* White text for dark theme */
+  }
+  
+  .dark .contact-text {
+    color: #cbd5e0; /* Light gray for dark theme */
+  }
+  
+  .dark .contact-item {
+    background-color: #2d3748; /* Darker background for contact items */
+  }
+  
+  .dark .contact-icon {
+    color: #ffffff; /* White icon for dark theme */
+  }
+  
+  .dark .contact-label {
+    color: #a0aec0; /* Light gray for label in dark theme */
+  }
+  
+  .dark .contact-value {
+    color: #ffffff; /* White text for value in dark theme */
+  }
+
+  /* Light Theme Text Colors */
+.light {
+  background-color: #F2F9FE;
+  color: #223344; /* Default text color for light theme */
+}
+
+.light .title-menu,
+.light .list-items-menu,
+.light .info,
+.light .main-text,
+.light .second-text,
+.light .about-title,
+.light .about-text,
+.light .contact-title,
+.light .contact-text,
+.light .contact-label,
+.light .contact-value,
+.light .highlight-item span,
+.light .last-text .item p,
+.light .author-info {
+  color: #223344; /* Dark text for light theme */
+}
+
+/* Dark Theme Text Colors */
+.dark {
+  background-color: #111729;
+  color: #ffffff; /* Default text color for dark theme */
+}
+
+.dark .title-menu,
+.dark .list-items-menu,
+.dark .info,
+.dark .main-text,
+.dark .second-text,
+.dark .about-title,
+.dark .about-text,
+.dark .contact-title,
+.dark .contact-text,
+.dark .contact-label,
+.dark .contact-value,
+.dark .highlight-item span,
+.dark .last-text .item p,
+.dark .author-info {
+  color: #ffffff; /* White text for dark theme */
+}
+
+/* Light theme adjustments */
+.light .about-section {
+  background-color: #ffffff; /* White background for light theme */
+}
+
+.light .about-title,
+.light .about-text {
+  color: #000000; /* Black text for light theme */
+}
+
+.light .contactinfo {
+  background-color: #ffffff; /* White background for light theme */
+  color: #000000; /* Black text for light theme */
+}
+
+/* Dark theme adjustments */
+.dark .about-section {
+  background-color: #333333; /* Dark background for dark theme */
+}
+
+.dark .about-title,
+.dark .about-text {
+  color: #ffffff; /* White text for dark theme */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .info {
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .data {
+    width: 100%;
+  }
+
+  .image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .buttons-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .button-get,
+  .button-checker,
+  .button-login {
+    width: 80%;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .menu-logo {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    width: 100%;
+    height: auto;
+    position: static;
+    background: none;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul li a {
+    font-size: 1.25rem;
+  }
+
+  .about-section,
+  .contact-section {
+    padding: 1rem;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .first-text,
+  .main-text,
+  .second-text {
+    font-size: 1rem;
+  }
+
+  .menu-toggle {
+    width: 100%;
+  }
+
+  .menu-logo span {
+    font-size: 1rem;
+  }
+}
